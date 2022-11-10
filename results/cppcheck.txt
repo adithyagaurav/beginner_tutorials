@@ -1,0 +1,7 @@
+cppcheck --enable=all --std=c++11  --suppress=missingIncludeSystem $( find . -name *.cpp | grep -vE -e "^./build/" -e "^./vendor/")
+Checking src/publisher_member_function.cpp ...
+1/2 files checked 55% done
+Checking src/subscriber_member_function.cpp ...
+2/2 files checked 100% done
+nofile:0:0: information: Cppcheck cannot find all the include files (use --check-config for details) [missingInclude]
+
