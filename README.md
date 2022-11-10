@@ -13,7 +13,7 @@ Listener node : src/subscriber_member_function.cpp (Node for subscribing)
 
 ## Dependencies
 
-- ROS 2 Foxy : [installation instructions](http://wiki.ros.org/melodic/Installation/Ubuntu)
+- ROS 2 Foxy : [installation instructions](https://docs.ros.org/en/foxy/Installation.html)
 - Ubuntu 20.04
 - ament_cmake
 
