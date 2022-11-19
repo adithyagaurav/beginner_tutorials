@@ -36,7 +36,7 @@ Open a new terminal for running talker node
 
 ```
 . install/setup.bash
-ros2 run beginner_tutorials talker
+ros2 run beginner_tutorials talker frequency:=10
 ```
 
 Open a new terminal for running listener node
@@ -44,5 +44,19 @@ Open a new terminal for running listener node
 ```
 . install/setup.bash
 ros2 run beginner_tutorials listener
+```
+
+Open a new terminal for running Service client
+
+```
+. install/setup.bash
+ros2 run beginner_tutorials client CustomMessage
+```
+
+For running via launch file
+
+```
+. install/setup.bash
+ros2 launch beginner_tutorials launch_service.yaml frequency:=60
 ```
 
