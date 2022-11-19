@@ -1,6 +1,10 @@
 cpplint $( find . -name \*.h -or -name \*.cpp | grep -vE -e "^./build/" -e "^./vendor/")
-./src/publisher_member_function.cpp:15:  <chrono> is an unapproved C++11 header.  [build/c++11] [5]
-./src/publisher_member_function.cpp:21:  Do not use namespace using-directives.  Use using-declarations instead.  [build/namespaces] [5]
-Done processing ./src/publisher_member_function.cpp
-Done processing ./src/subscriber_member_function.cpp
-Total errors found: 2
+./client_member_function.cpp:15:  <chrono> is an unapproved C++11 header.  [build/c++11] [5]
+./client_member_function.cpp:23:  Do not use namespace using-directives.  Use using-declarations instead.  [build/namespaces] [5]
+Done processing ./client_member_function.cpp
+./publisher_member_function.cpp:15:  <chrono> is an unapproved C++11 header.  [build/c++11] [5]
+./publisher_member_function.cpp:23:  Do not use namespace using-directives.  Use using-declarations instead.  [build/namespaces] [5]
+./publisher_member_function.cpp:24:  Do not use namespace using-directives.  Use using-declarations instead.  [build/namespaces] [5]
+Done processing ./publisher_member_function.cpp
+Done processing ./subscriber_member_function.cpp
+Total errors found: 5
