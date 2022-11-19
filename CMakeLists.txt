@@ -19,21 +19,38 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
+
+ament_export_dependencies(rosidl_default_generators)
+find_package(rosidl_default_generators REQUIRED)
+rosidl_generate_interfaces(${PROJECT_NAME}
+  "srv/Custom.srv"
+  DEPENDENCIES std_msgs
+ )
 add_executable(talker src/publisher_member_function.cpp)
 ament_target_dependencies(talker rclcpp std_msgs)
-install(TARGETS
-  talker
-  DESTINATION lib/${PROJECT_NAME})
+
 add_executable(listener src/subscriber_member_function.cpp)
 ament_target_dependencies(listener rclcpp std_msgs)
+
+add_executable(client src/client_member_function.cpp)
+ament_target_dependencies(client rclcpp std_msgs)
+rosidl_target_interfaces(talker 
+                        ${PROJECT_NAME} "rosidl_typesupport_cpp")
+rosidl_target_interfaces(client
+                        ${PROJECT_NAME} "rosidl_typesupport_cpp")
 
 install(TARGETS
   talker
   listener
+  client
   DESTINATION lib/${PROJECT_NAME})
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
+install(
+  DIRECTORY launch
+  DESTINATION share/${PROJECT_NAME})
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
