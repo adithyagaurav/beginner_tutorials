@@ -11,7 +11,16 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-
+/**
+ * @file File to implement Server client
+ * @author Adithya Singh (agsingh@umd.edu)
+ * @brief 
+ * @version 0.1
+ * @date 2022-11-30
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
 #include <chrono>
 #include <cstdlib>
 #include <memory>
@@ -29,12 +38,14 @@ int main(int argc, char **argv) {
       RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "usage: input a string");
       return 1;
   }
+  // Declare service client node
   std::shared_ptr<rclcpp::Node> node = \
   rclcpp::Node::make_shared("client_for_updating_string");
+  // Bind client to callback
   rclcpp::Client<beginner_tutorials::srv::Custom>::SharedPtr client =
     node->create_client<beginner_tutorials::srv::Custom>\
     ("CustomString");
-
+  // Get the request of custom string
   auto request = std::make_shared<beginner_tutorials::srv::Custom::Request>();
   request->input_string = std::string(argv[1]);
 
@@ -47,7 +58,7 @@ int main(int argc, char **argv) {
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), \
     "service not available, waiting again...");
   }
-
+  // Send the request
   auto result = client->async_send_request(request);
   // Wait for the result.
   if (rclcpp::spin_until_future_complete(node, result) ==

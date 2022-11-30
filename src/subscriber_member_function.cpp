@@ -11,25 +11,47 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-
+/**
+ * @file File to implement code for subscriber
+ * @author Adithya Singh (agsingh@umd.edu)
+ * @brief 
+ * @version 0.1
+ * @date 2022-11-30
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
 #include <memory>
 
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/string.hpp"
 using std::placeholders::_1;
-
+/**
+ * @brief Class to implement Subscriber
+ * 
+ */
 class MinimalSubscriber : public rclcpp::Node {
  public:
   MinimalSubscriber()
   : Node("minimal_subscriber") {
+    // Bind subscriber to callback function
     subscription_ = this->create_subscription<std_msgs::msg::String>(
-      "topic", 10, std::bind(&MinimalSubscriber::topic_callback, this, _1));
+      "chatter", 10, std::bind(&MinimalSubscriber::topic_callback, this, _1));
   }
 
  private:
+  /**
+   * @brief Implement the callback funtion for subscriber
+   * 
+   * @param msg 
+   */
   void topic_callback(const std_msgs::msg::String::SharedPtr msg) const {
     RCLCPP_INFO(this->get_logger(), "I heard: '%s'", msg->data.c_str());
   }
+  /**
+   * @brief Subscriber attribute
+   * 
+   */
   rclcpp::Subscription<std_msgs::msg::String>::SharedPtr subscription_;
 };
 
