@@ -60,3 +60,27 @@ For running via launch file
 ros2 launch beginner_tutorials launch_service.yaml frequency:=60
 ```
 
+For running tf2 broadcaster
+
+```
+. install/setup.bash
+ros2 run beginner_tutorials talker talk 31 21 2 1 0 1
+```
+
+For recording ROS bag and playing it with listener node
+
+```
+. install/setup.bash
+ros2 launch beginner_tutorials launch_beginner_tutorials.py record:=True
+
+ros2 bag play <bag_file>
+ros2 run beginner_tutorials listener
+```
+
+For running unit tests
+
+```
+cd ~/ros2_ws
+colcon test --packages-select beginner_tutorials
+```
+
