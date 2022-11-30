@@ -1,10 +1,11 @@
 cpplint $( find . -name \*.h -or -name \*.cpp | grep -vE -e "^./build/" -e "^./vendor/")
-./client_member_function.cpp:15:  <chrono> is an unapproved C++11 header.  [build/c++11] [5]
-./client_member_function.cpp:23:  Do not use namespace using-directives.  Use using-declarations instead.  [build/namespaces] [5]
+./client_member_function.cpp:24:  <chrono> is an unapproved C++11 header.  [build/c++11] [5]
+./client_member_function.cpp:32:  Do not use namespace using-directives.  Use using-declarations instead.  [build/namespaces] [5]
 Done processing ./client_member_function.cpp
-./publisher_member_function.cpp:15:  <chrono> is an unapproved C++11 header.  [build/c++11] [5]
-./publisher_member_function.cpp:23:  Do not use namespace using-directives.  Use using-declarations instead.  [build/namespaces] [5]
-./publisher_member_function.cpp:24:  Do not use namespace using-directives.  Use using-declarations instead.  [build/namespaces] [5]
+./publisher_member_function.cpp:24:  <chrono> is an unapproved C++11 header.  [build/c++11] [5]
+./publisher_member_function.cpp:35:  Do not use namespace using-directives.  Use using-declarations instead.  [build/namespaces] [5]
+./publisher_member_function.cpp:36:  Do not use namespace using-directives.  Use using-declarations instead.  [build/namespaces] [5]
+./publisher_member_function.cpp:45:  Single-parameter constructors should be marked explicit.  [runtime/explicit] [5]
 Done processing ./publisher_member_function.cpp
 Done processing ./subscriber_member_function.cpp
-Total errors found: 5
+Total errors found: 6

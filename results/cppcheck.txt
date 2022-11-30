@@ -1,10 +1,16 @@
 cppcheck --enable=all --std=c++11  --suppress=missingIncludeSystem $( find . -name *.cpp | grep -vE -e "^./build/" -e "^./vendor/")
 Checking install/beginner_tutorials/include/beginner_tutorials/srv/detail/custom__type_support.cpp ...
-1/4 files checked 62% done
+1/5 files checked 48% done
 Checking src/client_member_function.cpp ...
-2/4 files checked 73% done
+2/5 files checked 58% done
 Checking src/publisher_member_function.cpp ...
-3/4 files checked 92% done
+src/publisher_member_function.cpp:45:3: style: Class 'MinimalPublisher' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+  MinimalPublisher(char * transformation[])
+  ^
+3/5 files checked 82% done
 Checking src/subscriber_member_function.cpp ...
-4/4 files checked 100% done
+4/5 files checked 90% done
+Checking test/test.cpp ...
+Checking test/test.cpp: RMW_IMPLEMENTATION...
+5/5 files checked 100% done
 
